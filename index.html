@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>desarrollo web entorno cliente</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00FF00;
+            font-family: monospace;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1,
+        h2 {
+            color: #FFFFFF;
+            font-weight: normal;
+        }
+
+        #head {
+            display: flex;
+        }
+
+        .home,
+        .doc,
+        .git {
+            width: 100px;
+        }
+
+        form {
+            border: 1px solid #00FF00;
+            padding: 5px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        label {
+            margin: 5px;
+        }
+
+        input {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #00FF00;
+            background-color: black;
+            color: #00FF00;
+            width: 80%;
+        }
+
+        button {
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #006400;
+            background-color: #006400;
+            color: #00FF00;
+            width: 40%;
+            cursor: pointer;
+        }
+
+        p {
+            color: #00FF00;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #006400;
+            color: #00FF00;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        // definimos la función para validar el formulario
+        function validateForm() {
+            // obtenemos los valores de los campos de user y password
+            // y los almacenamos en las variables user y password
+            var user = document.getElementById("user").value;
+            var password = document.getElementById("password").value;
+            // almacenamos en la variable userReEx la expresión regular
+            // para validar el campo de user
+            var userReEx = /^[a-z]{3,12}$/;
+            // almacenamos en la variable passwordReEx la expresión regular
+            // para validar el campo de password
+            var passwordReEx = /^[A-Z][.,-]?([a-z]{6}|[0-9]{6}|[a-z0-9]{6})$/;
+            // validamos el campo de user
+            if (!userReEx.test(user)) {
+                // mostramos una alerta si hay un error en el campo user
+                alert("user no puede estar vacío\n" +
+                    "debe contener exclusivamente minúsculas\n" +
+                    "longitud entre 3 y 12 caracteres");
+                // devolvemos false para evitar el envío del formulario
+                return false;
+            }
+            // validamos el campo de password
+            if (!passwordReEx.test(password)) {
+                // mostramos una alerta si hay un error en el campo password
+                alert("password no puede estar vacío\n" +
+                    "debe comenzar con mayúscula\n" +
+                    "seguido de punto coma o guión\n" +
+                    "seguido de 6 minúsculas 6 números o ambos");
+                // devolvemos false para evitar el envío del formulario
+                return false;
+            }
+            // si ambos campos pasan la validación devolvemos true
+            // para permitir el envío del formulario
+            return true;
+        }
+
+        function goHome() {
+
+            window.location.href = '/';
+
+        }
+
+        function goGit() {
+
+            window.location.href = 'https://github.com/s7rg77/form-validation';
+
+        }
+
+        function goDoc() {
+
+            window.location.href = '/doc';
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="head">
+        <button class="doc" onclick="goDoc()">doc</button>
+        <button class="git" onclick="goGit()">git</button>
+        <button class="home" onclick="goHome()">back</button>
+    </div>
+    <h1>form validation</h1>
+    <h2>sergio lópez</h2>
+    <form onSubmit="return validateForm()">
+        <label for="user">user</label><br>
+        <input type="text" id="user" name="user" />
+        <label for="password">password</label><br>
+        <input type="password" id="password" name="password" />
+        <button class="button" type="submit">submit</button>
+    </form>
+</body>
+
+<footer>
+    <h3>desarrollo web entorno cliente</h3>
+</footer>
+
+</html>
