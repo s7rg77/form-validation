@@ -6,24 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>form validation</title>
     <style>
+        html,
+        body {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
         body {
             background-color: black;
             color: #00FF00;
             font-family: monospace;
             font-size: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         h1,
         h2 {
             color: #FFFFFF;
             font-weight: normal;
+            text-align: center;
         }
 
-        #head {
+        header {
+            margin-top: 10px;
             display: flex;
+            justify-content: center;
+        }
+
+        main {
+            margin-bottom: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .home,
@@ -40,10 +57,6 @@
             text-align: center;
         }
 
-        label {
-            margin: 5px;
-        }
-
         input {
             margin: 5px;
             padding: 5px;
@@ -54,7 +67,7 @@
         }
 
         button {
-            margin: 5px;
+            margin: 0px 5px;
             padding: 5px;
             width: 40%;
             border: none;
@@ -63,18 +76,20 @@
             cursor: pointer;
         }
 
+        .button {
+            margin: 5px;
+        }
+
         p {
             color: #00FF00;
             text-align: center;
         }
 
         footer {
-            bottom: 0px;
-            width: 100%;
+            width: 100vw;
             background-color: #006400;
             color: #00FF00;
             text-align: center;
-            position: fixed;
         }
     </style>
     <script type="text/javascript">
@@ -135,24 +150,27 @@
 </head>
 
 <body>
-    <div id="head">
+    <header>
         <button class="doc" onclick="goDoc()">doc</button>
         <button class="git" onclick="goGit()">git</button>
         <button class="home" onclick="goHome()">back</button>
-    </div>
-    <h1>form validation</h1>
-    <h2>sergio lópez</h2>
-    <form onSubmit="return validateForm()">
-        <label for="user">user</label><br>
-        <input type="text" id="user" name="user" />
-        <label for="password">password</label><br>
-        <input type="password" id="password" name="password" />
-        <button class="button" type="submit">submit</button>
-    </form>
-</body>
+    </header>
 
-<footer>
-    <h3>desarrollo web entorno cliente</h3>
-</footer>
+    <main>
+        <h1>form validation</h1>
+        <h2>sergio lópez</h2>
+        <form onSubmit="return validateForm()">
+            <label for="user">user</label><br>
+            <input type="text" id="user" name="user" />
+            <label for="password">password</label><br>
+            <input type="password" id="password" name="password" />
+            <button class="button" type="submit">submit</button>
+        </form>
+    </main>
+
+    <footer>
+        <h3>desarrollo web entorno cliente</h3>
+    </footer>
+</body>
 
 </html>
